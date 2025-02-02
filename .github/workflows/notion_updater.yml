@@ -1,0 +1,28 @@
+name: Notion Title Updater
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Führt das Skript täglich um 08:00 Uhr UTC aus
+
+jobs:
+  update_title:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Run script
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}  # Dein Notion-Token aus GitHub Secrets
+        run: |
+          python3 script.py

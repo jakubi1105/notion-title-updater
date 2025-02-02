@@ -2,7 +2,7 @@ name: Notion Title Updater
 
 on:
   schedule:
-    - cron: '20 21 * * *'  # Führt das Skript täglich um 08:00 Uhr UTC aus
+    - cron: '24 21 * * *'  # Führt das Skript täglich um 08:00 Uhr UTC aus
 
 jobs:
   update_title:
@@ -25,4 +25,4 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}  # Dein Notion-Token aus GitHub Secrets
         run: |
-          python3 script.py
+          python3 dateUpdate.py

@@ -2,7 +2,7 @@ name: Notion Title Updater
 
 on:
   schedule:
-    - cron: '17 22 * * *'  # Führt das Skript täglich um 08:00 Uhr UTC aus
+    - cron: '20 21 * * *'  # Führt das Skript täglich um 08:00 Uhr UTC aus
 
 jobs:
   update_title:

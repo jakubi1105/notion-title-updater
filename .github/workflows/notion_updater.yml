@@ -2,7 +2,7 @@ name: Notion Title Updater
 
 on:
   schedule:
-    - cron: '45 21 * * *'  # 21:24 UTC → 22:24 MEZ
+    - cron: '00 01 * * *'  # 21:24 UTC → 22:24 MEZ
   workflow_dispatch:
 
 jobs:

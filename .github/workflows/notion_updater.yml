@@ -2,8 +2,9 @@ name: Notion Title Updater
 
 on:
   schedule:
-    - cron: '35 21 * * *'  # Führt das Skript täglich um 08:00 Uhr UTC aus
+    - cron: '39 21 * * *'  # 21:24 UTC → 22:24 MEZ
   workflow_dispatch:
+
 jobs:
   update_title:
     runs-on: ubuntu-latest
@@ -19,10 +20,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests
+          pip install requests pytz
+
+      - name: Debug cron execution
+        run: echo "Workflow started at $(date -u)"  # Zeigt das Datum und die Zeit des Starts an
 
       - name: Run script
         env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}  # Dein Notion-Token aus GitHub Secrets
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          PAGE_ID: ${{ secrets.PAGE_ID }}
         run: |
-          python3 dateUpdate.py
+          python3 script.py

@@ -2,7 +2,7 @@ name: Notion Title Updater
 
 on:
   schedule:
-    - cron: '39 21 * * *'  # 21:24 UTC → 22:24 MEZ
+    - cron: '45 21 * * *'  # 21:24 UTC → 22:24 MEZ
   workflow_dispatch:
 
 jobs:
@@ -30,4 +30,4 @@ jobs:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           PAGE_ID: ${{ secrets.PAGE_ID }}
         run: |
-          python3 script.py
+          python3 dateUpdate.py

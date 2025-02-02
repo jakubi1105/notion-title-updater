@@ -3,7 +3,7 @@ name: Notion Title Updater
 on:
   schedule:
     - cron: '24 21 * * *'  # Führt das Skript täglich um 08:00 Uhr UTC aus
-
+  workflow_dispatch:
 jobs:
   update_title:
     runs-on: ubuntu-latest
